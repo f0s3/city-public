@@ -7,4 +7,5 @@ export class Post {
   description: string;
   media: Media[];
   time: number;
+  category: string
 }

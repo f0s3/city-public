@@ -2,10 +2,7 @@
   <div class="d-flex justify-content-between p-2 header fs-16">
     <ul class="d-flex">
       <li>Home</li>
-      <li>Culture</li>
-      <li>Work</li>
-      <li>Politics</li>
-      <li>Science</li>
+      <li *ngFor="let category of categories">{{category}}</li>
       <li>Popular</li>
     </ul>
 
@@ -23,4 +20,6 @@
   </div>
 </header>
 
-<router-outlet></router-outlet>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

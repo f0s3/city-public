@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {categories, PostService} from "../services/post.service";
+import {Post} from "./models/Post";
+
 
 @Component({
   selector: 'app-home',
@@ -7,15 +9,21 @@ import {FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  cityForm: FormGroup;
+  categories = categories;
+  private posts: Post[];
 
-  constructor(fb: FormBuilder) {
-    this.cityForm = fb.group({
-      city: ''
-    })
+
+  constructor(private _postService: PostService) {
   }
 
   ngOnInit() {
+    this._postService.selectedCity.subscribe((city: string) => {
+      this._postService.getAllPosts(city)
+        .subscribe((posts: Post[]) => this.posts = posts);
+    })
   }
 
+  getPostsByCategory(cat: string): Post[] {
+    return this.posts.filter((post: Post) => post.category === cat);
+  }
 }

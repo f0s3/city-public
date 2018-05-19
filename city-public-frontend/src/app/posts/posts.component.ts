@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {PostService} from "../services/post.service";
+import {Component, Input} from '@angular/core';
+import {Post} from "../home/models/Post";
 
 @Component({
   selector: 'app-posts',
@@ -7,6 +7,6 @@ import {PostService} from "../services/post.service";
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent {
-  constructor(private _postsService: PostService) { }
-
+  @Input() posts: Post[];
+  @Input() title: string;
 }

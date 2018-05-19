@@ -1,0 +1,12 @@
+<div>
+  <h4 *ngIf="title">{{title}}</h4>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let post of posts" class="card post">
+      <div class="card-body">
+        <div class="card-title">
+          {{post.title}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
