@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
-import {Post} from "../home/models/Post";
+import {Post} from "../models/Post";
 
 import {environment} from "../../environments/environment";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
@@ -28,10 +28,10 @@ export class PostService {
   public getAllPosts(city: string): Observable<Post[]> {
     return of(
       [
-        {title: 'hello', category: 'Culture'},
-        {title: 'hello', category: 'Culture'},
-        {title: 'hello', category: 'Culture'},
-        {title: 'hello', category: 'Science'}
+        {id: 1, title: 'hello', category: 'Culture'},
+        {id: 2, title: 'hello', category: 'Culture'},
+        {id: 3, title: 'hello', category: 'Culture'},
+        {id: 4, title: 'hello', category: 'Science'}
       ] as Post[]
     );
   }
