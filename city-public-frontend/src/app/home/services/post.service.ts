@@ -6,7 +6,9 @@ import {Post} from "../models/Post";
 import {environment} from "../../../environments/environment";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
-const API_URL: string = environment.apiUrl;
+import {of} from "rxjs/observable/of";
+
+const API_URL: string = environment.localApiUrl;
 const POSTS_URL: string = `${API_URL}/posts`;
 
 @Injectable()
@@ -16,7 +18,11 @@ export class PostService {
 
   public selectedCity: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  public getAllPosts(country: string, city: string): Observable<Post[]> {
-    return this._http.get<Post[]>(POSTS_URL);
+  public getAllPosts(city: string): Observable<Post[]> {
+    return of(
+      [
+        {title: 'hello'}, {title: 'hello'}
+      ] as Post[]
+    );
   }
 }
