@@ -16,7 +16,16 @@ header::after, header::before {
 }
 
 .body {
+  height: calc(100% - 52px);
+}
+
+.day {
+  @extend .body;
   background: url("../assets/images/page-backgrounds/day.jpg") no-repeat;
   background-size: cover;
-  height: calc(100% - 52px);
+}
+.night {
+  @extend .body;
+  background: url("../assets/images/page-backgrounds/night.jpg") no-repeat;
+  background-size: cover;
 }
