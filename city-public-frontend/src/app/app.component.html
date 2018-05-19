@@ -3,7 +3,7 @@
     <ul class="d-flex" style="position: relative; bottom: -8px;">
       <li routerLink="/dashboard/home" routerLinkActive="active-menu-item">
         <img src="../assets/images/logo.png" class="logo">
-        <span class="menu-text">Home</span>
+        <span class="menu-text"><span style="color: red">In</span><span style="color: blue">City</span></span>
       </li>
       <li *ngFor="let category of categories" routerLink="/dashboard/categories/{{category.key}}/posts"
           routerLinkActive="active-menu-item">
