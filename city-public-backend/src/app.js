@@ -2,42 +2,35 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const mysql = require('mysql');
 let app = express();
 let port = 8080;
 
 app.use(morgan('combined'));
+app.use(cors());
 
-app.get('/posts', (req, res) =>
-		res.send({
-			posts:[
-				{
-					user: {
-						id: 429,
-						nickname:"test123nickname",
-						photo:"user_photo_url"
-					},
-					title: "TITLE",
-					description: "long text that is our description and this is basic hello world from backend side!",
-					media:[{type:"VIDEO", url:"url1"}, {type:"VIDEO", url:"url1"}],
-					time: "current time"
-				},
-				{
-					user: {
-						id: 429,
-						nickname:"test123nickname",
-						photo:"user_photo_url"
-					},
-					title: "TITLE",
-					description: "long text that is our description and this is basic hello world from backend side!",
-					media:[{type:"VIDEO", url:"url1"}, {type:"VIDEO", url:"url1"}],
-					time: "current time"
-				}
-			]
-		})
-	);
-// app.post('/', (req, res) => {
-// 	res.send({
-// 		body:data
-// 	});
-// });
+
+let doSelect = (db) => {
+
+};
+
+app.get('/posts', (req, res) => {
+	let connection = mysql.createConnection({
+		host: "localhost",
+		user: "modelProvider",
+		password: "qwerty",
+		database: 'Cherkasy'
+	});
+
+	connection.connect((err) => {
+		if (err) throw err;
+		console.log("Connected!");
+		connection.query("SELECT * FROM posts;", function (err, result) {
+			if (err) throw err;
+			res.json(result);
+		});
+	});
+
+})
+
 app.listen(port, () => console.log('App listening on port '+ port +'!'));
