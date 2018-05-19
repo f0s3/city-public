@@ -10,7 +10,7 @@ import {Post} from "../models/Post";
 })
 export class HomeComponent implements OnInit {
   categories = categories;
-  private posts: Post[];
+  private posts: Post[] = [];
 
 
   constructor(private _postService: PostService) {
@@ -29,5 +29,17 @@ export class HomeComponent implements OnInit {
       return posts.slice(0,2)
     }
     return posts
+  }
+
+  getLastPost(): Post {
+    const lastIndex: number = this.posts.length - 1;
+    return this.posts[lastIndex];
+  }
+
+  getTopPostStyles(lastPost: Post) {
+    return {
+      'background': 'url(' + lastPost.url +') no-repeat center',
+      'backgroung-size': 'contain'
+    }
   }
 }

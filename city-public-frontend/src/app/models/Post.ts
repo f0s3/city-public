@@ -7,6 +7,7 @@ export class Post {
   title: string;
   description: string;
   media: Media[];
-  time: number;
-  category: string
+  time: string;
+  category: string;
+  url?: string;
 }

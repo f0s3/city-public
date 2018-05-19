@@ -12,6 +12,7 @@ import {PostService} from "./services/post.service";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PostComponent } from './post/post.component';
+import { PostByCategoryComponent } from './post-by-category/post-by-category.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PostComponent } from './post/post.component';
     AppComponent,
     HomeComponent,
     PostsComponent,
-    PostComponent
+    PostComponent,
+    PostByCategoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,32 @@
 <header class="bg-white d-flex justify-content-between">
-  <div class="d-flex justify-content-between p-2 header fs-16">
-    <ul class="d-flex">
-      <li routerLink="/dashboard/home">Home</li>
-      <li *ngFor="let category of categories" routerLink="/dashboard/home">{{category.name}}</li>
-      <li>Popular</li>
+  <div class="d-flex justify-content-between p-2 header fs-16" style="border-bottom: 3px red solid;">
+    <ul class="d-flex" style="position: relative; bottom: -8px;">
+      <li routerLink="/dashboard/home" routerLinkActive="active-menu-item">
+        <img src="../assets/images/logo.png" class="logo">
+        <span class="menu-text"><span style="color: red">In</span><span style="color: blue">City</span></span>
+      </li>
+      <li *ngFor="let category of categories" routerLink="/dashboard/categories/{{category.key}}/posts"
+          routerLinkActive="active-menu-item">
+        <span class="menu-text">{{category.name}}</span>
+      </li>
+      <li><span class="menu-text" routerLinkActive="active-menu-item">Popular</span></li>
     </ul>
 
-    <div>
+    <div class="d-flex justify-content-between">
       <form [formGroup]="cityForm">
         <input type="search" formControlName="city" class="form-control" placeholder="City">
       </form>
-    </div>
 
-    <div></div>
-
-    <div>
-      Logout
+      <div class="ml-4">
+        Login
+      </div>
     </div>
   </div>
 </header>
 
-<div class="content">
-  <router-outlet></router-outlet>
+<div class="scroll-content">
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
+
