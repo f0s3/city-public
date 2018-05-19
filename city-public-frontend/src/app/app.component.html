@@ -12,10 +12,14 @@
       <li><span class="menu-text" routerLinkActive="active-menu-item">Popular</span></li>
     </ul>
 
-    <div>
+    <div class="d-flex justify-content-between">
       <form [formGroup]="cityForm">
         <input type="search" formControlName="city" class="form-control" placeholder="City">
       </form>
+
+      <div class="ml-4">
+        Login
+      </div>
     </div>
   </div>
 </header>
