@@ -2,7 +2,9 @@
   <div class="d-flex justify-content-between p-2 header fs-16">
     <ul class="d-flex">
       <li routerLink="/dashboard/home">Home</li>
-      <li *ngFor="let category of categories" routerLink="/dashboard/home">{{category.name}}</li>
+      <li *ngFor="let category of categories" routerLink="/dashboard/categories/{{category.key}}/posts">
+        {{category.name}}
+      </li>
       <li>Popular</li>
     </ul>
 

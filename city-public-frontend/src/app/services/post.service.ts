@@ -5,10 +5,9 @@ import {Post} from "../models/Post";
 
 import {environment} from "../../environments/environment";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
-
 import {of} from "rxjs/observable/of";
 
-const API_URL: string = environment.localApiUrl;
+const API_URL: string = environment.apiUrl;
 const POSTS_URL: string = `${API_URL}/posts`;
 
 export const categories = [
@@ -26,13 +25,13 @@ export class PostService {
   public selectedCity: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   public getAllPosts(city: string): Observable<Post[]> {
-    return of(
-      [
-        {post_id: 1, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
-        {post_id: 2, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
-        {post_id: 3, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
-        {post_id: 4, title: 'hello', category: 'science', url: '../../assets/images/page-backgrounds/day.jpg'}
-      ] as Post[]
-    );
+    return of(posts)///this._http.get<Post[]>(POSTS_URL);
   }
 }
+
+const posts = [
+  {post_id: 1, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
+  {post_id: 2, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
+  {post_id: 3, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
+  {post_id: 4, title: 'hello', category: 'science', url: '../../assets/images/page-backgrounds/day.jpg'}
+] as Post[];
