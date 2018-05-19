@@ -1,4 +1,4 @@
-<div style="width: 860px">
+<div style="width: 860px;">
   <h1 class="book-antiqua">{{post.title}}</h1>
   <div>
     <img [src]="getUserPhoto()" class="user-photo" style="vertical-align: middle">
@@ -12,5 +12,9 @@
     <div *ngFor="let photo of getPhotos()" class="m-1">
       <img [src]="photo.url" width="400px">
     </div>
+  </div>
+
+  <div class="p-2">
+    {{post?.description}}
   </div>
 </div>
