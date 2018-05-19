@@ -24,6 +24,10 @@ export class HomeComponent implements OnInit {
   }
 
   getPostsByCategory(cat: string): Post[] {
-    return this.posts.filter((post: Post) => post.category === cat);
+    const posts = this.posts.filter((post: Post) => post.category === cat);
+    if (posts.length > 2) {
+      return posts.slice(0,2)
+    }
+    return posts
   }
 }

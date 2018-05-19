@@ -28,7 +28,10 @@ export class PostService {
   public getAllPosts(city: string): Observable<Post[]> {
     return of(
       [
-        {title: 'hello', category: 'Culture'}, {title: 'hello', category: 'Science'}
+        {title: 'hello', category: 'Culture'},
+        {title: 'hello', category: 'Culture'},
+        {title: 'hello', category: 'Culture'},
+        {title: 'hello', category: 'Science'}
       ] as Post[]
     );
   }
