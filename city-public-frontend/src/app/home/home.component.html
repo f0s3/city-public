@@ -1,7 +1,7 @@
 <div class="content">
   <div *ngFor="let category of categories">
-    <div *ngIf="getPostsByCategory(category).length != 0">
-      <app-posts [posts]="getPostsByCategory(category)" [title]="category"></app-posts>
+    <div *ngIf="getPostsByCategory(category.key).length != 0">
+      <app-posts [posts]="getPostsByCategory(category.key)" [title]="category.name"></app-posts>
     </div>
   </div>
 </div>

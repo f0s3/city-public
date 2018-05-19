@@ -12,10 +12,10 @@ const API_URL: string = environment.localApiUrl;
 const POSTS_URL: string = `${API_URL}/posts`;
 
 export const categories = [
-  'Culture',
-  'Work',
-  'Politics',
-  'Science'
+  {key: 'culture', name: 'Culture'},
+  {key: 'work', name: 'Work'},
+  {key: 'politics', name: 'Politics'},
+  {key: 'science', name: 'Science'}
 ];
 
 @Injectable()
@@ -28,10 +28,10 @@ export class PostService {
   public getAllPosts(city: string): Observable<Post[]> {
     return of(
       [
-        {id: 1, title: 'hello', category: 'Culture'},
-        {id: 2, title: 'hello', category: 'Culture'},
-        {id: 3, title: 'hello', category: 'Culture'},
-        {id: 4, title: 'hello', category: 'Science'}
+        {id: 1, title: 'hello', category: 'culture'},
+        {id: 2, title: 'hello', category: 'culture'},
+        {id: 3, title: 'hello', category: 'culture'},
+        {id: 4, title: 'hello', category: 'science'}
       ] as Post[]
     );
   }

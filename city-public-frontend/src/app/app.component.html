@@ -1,8 +1,8 @@
 <header class="bg-white d-flex justify-content-between">
   <div class="d-flex justify-content-between p-2 header fs-16">
     <ul class="d-flex">
-      <li>Home</li>
-      <li *ngFor="let category of categories">{{category}}</li>
+      <li routerLink="/dashboard/home">Home</li>
+      <li *ngFor="let category of categories" routerLink="/dashboard/home">{{category.name}}</li>
       <li>Popular</li>
     </ul>
 
