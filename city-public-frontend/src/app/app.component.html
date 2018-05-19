@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<header class="bg-dark border-bottom border-white d-flex justify-content-between">
+  <div class="d-flex justify-content-between p-2 header">
+    <div class="header-title">CityPublic</div>
+    <div></div>
+  </div>
+</header>
+<div [ngClass]="getBodyBGClass()">
+  <router-outlet></router-outlet>
+</div>

@@ -3,5 +3,6 @@ import {HomeComponent} from "./home/home.component";
 
 export const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: '', redirectTo: 'home'}
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

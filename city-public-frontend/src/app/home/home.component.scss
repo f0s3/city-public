@@ -1,0 +1,16 @@
+.side-bar {
+  width: 300px;
+}
+
+.side-bar > .card {
+  background: rgba(255, 255, 255, .25);
+  margin: 25px 25px 50px;
+}
+
+.side-bar > .card:first-child {
+  margin-top: 100px;
+}
+
+.content {
+  flex: 1;
+}

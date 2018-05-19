@@ -1,0 +1,32 @@
+.header{
+  flex: 1;
+}
+
+header::after, header::before {
+  @extend .side-bar;
+  content: '';
+}
+
+.side-bar {
+  width: 300px;
+}
+
+.header-title {
+  color: white;
+  font-size: 24px;
+}
+
+.body {
+  height: calc(100% - 52px);
+}
+
+.day {
+  @extend .body;
+  background: url("../assets/images/page-backgrounds/day.jpg") no-repeat;
+  background-size: cover;
+}
+.night {
+  @extend .body;
+  background: url("../assets/images/page-backgrounds/night.jpg") no-repeat;
+  background-size: cover;
+}
