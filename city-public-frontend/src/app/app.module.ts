@@ -13,6 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { PostComponent } from './post/post.component';
 import { PostByCategoryComponent } from './post-by-category/post-by-category.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import {ModalModule} from "ngx-bootstrap";
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { PostByCategoryComponent } from './post-by-category/post-by-category.com
     HomeComponent,
     PostsComponent,
     PostComponent,
-    PostByCategoryComponent
+    PostByCategoryComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { PostByCategoryComponent } from './post-by-category/post-by-category.com
     NgbModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot()
   ],
   providers: [
     PostService

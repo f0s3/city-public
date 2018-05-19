@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   getTopPostStyles(lastPost: Post) {
     return {
-      'background': 'url(' + lastPost.url +') no-repeat center',
+      'background': 'url(' + lastPost.url[0] +') no-repeat center',
       'backgroung-size': 'contain'
     }
   }

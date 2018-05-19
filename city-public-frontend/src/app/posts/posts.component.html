@@ -4,7 +4,7 @@
     <div *ngFor="let post of posts"
          class="card post position-relative"
          routerLink="/dashboard/posts/{{post.id}}"
-         [ngStyle]="getPostBG(post.url)"
+         [ngStyle]="getPostBG(post.url[0])"
     >
       <div class="card-body position-absolute title">
         <div class="card-text">

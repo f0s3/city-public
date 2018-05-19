@@ -67,20 +67,11 @@ const posts = [
     category: 'culture',
     time: new Date().toDateString(),
     user: {nickname: 'Alex'},
-    url: '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
-    media: [
-      {
-        url: '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
-        type: 'photo'
-      },
-      {
-        url: '../../assets/images/page-backgrounds/day.jpg',
-        type: 'photo'
-      },
-      {
-        url: '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
-        type: 'photo'
-      }
+    url: [
+      '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
+      '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
+      '../../assets/images/page-backgrounds/day.jpg',
+      '../../assets/images/7p_2hzkryqe-luis-llerena.jpg'
     ],
     description: postDescription
   },
@@ -90,16 +81,9 @@ const posts = [
     category: 'culture',
     time: new Date().toDateString(),
     user: {nickname: 'Oleg'},
-    url: '../../assets/images/page-backgrounds/day.jpg',
-    media: [
-      {
-        url: '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
-        type: 'photo'
-      },
-      {
-        url: '../../assets/images/page-backgrounds/day.jpg',
-        type: 'photo'
-      }
+    url: [
+      '../../assets/images/page-backgrounds/day.jpg',
+      '../../assets/images/7p_2hzkryqe-luis-llerena.jpg'
     ],
     description: postDescription
   },
@@ -109,14 +93,8 @@ const posts = [
     category: 'culture',
     time: new Date().toDateString(),
     user: {nickname: 'Hideo'},
-    url: '../../assets/images/page-backgrounds/day.jpg',
-    media: [
-      [
-        {
-          url: '../../assets/images/page-backgrounds/day.jpg',
-          type: 'photo'
-        }
-      ]
+    url: [
+      '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
     ],
     description: postDescription
   },
@@ -126,14 +104,9 @@ const posts = [
     category: 'science',
     time: new Date().toDateString(),
     user: {nickname: 'Jon'},
-    url: '../../assets/images/page-backgrounds/day.jpg',
-    media: [
-      [
-        {
-          url: '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
-          type: 'photo'
-        }
-      ]
+    url: [
+      '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
+      '../../assets/images/page-backgrounds/day.jpg'
     ],
     description: postDescription
   }
