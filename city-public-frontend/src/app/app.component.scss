@@ -18,6 +18,27 @@ header::after, header::before {
 .content {
   overflow-y: scroll;
   padding: 25px;
-  height: calc(100% - 55px);
+  height: calc(100% - 59px);
   margin: 0 300px;
+}
+
+
+header {
+  border-bottom: 3px solid red;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+li{
+  margin-left: 25px;
+}
+li:first-child {
+  margin: 0;
+}
+
+.fs-16 {
+  font-size: 18px;
 }

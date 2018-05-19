@@ -1,1 +1,26 @@
+<header class="bg-white d-flex justify-content-between">
+  <div class="d-flex justify-content-between p-2 header fs-16">
+    <ul class="d-flex">
+      <li>Home</li>
+      <li>Culture</li>
+      <li>Work</li>
+      <li>Politics</li>
+      <li>Science</li>
+      <li>Popular</li>
+    </ul>
+
+    <div>
+      <form [formGroup]="cityForm">
+        <input type="search" formControlName="city" class="form-control" placeholder="City">
+      </form>
+    </div>
+
+    <div></div>
+
+    <div>
+      Logout
+    </div>
+  </div>
+</header>
+
 <router-outlet></router-outlet>
