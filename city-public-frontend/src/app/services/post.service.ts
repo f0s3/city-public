@@ -34,8 +34,8 @@ export class PostService {
 }
 
 const posts = [
-  {post_id: 1, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
-  {post_id: 2, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
-  {post_id: 3, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
-  {post_id: 4, title: 'hello', category: 'science', url: '../../assets/images/page-backgrounds/day.jpg'}
+  {id: 1, title: 'hello', category: 'culture', url: '../../assets/images/7p_2hzkryqe-luis-llerena.jpg'},
+  {id: 2, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
+  {id: 3, title: 'hello', category: 'culture', url: '../../assets/images/page-backgrounds/day.jpg'},
+  {id: 4, title: 'hello', category: 'science', url: '../../assets/images/page-backgrounds/day.jpg'}
 ] as Post[];

@@ -11,6 +11,9 @@ export class PostsComponent {
   @Input() title: string;
 
   getPostBG(url: string) {
-    return {'background-image': 'url(' + url +')'}
+    return {
+      'background': 'url(' + url +') no-repeat center bottom',
+      'background-size': 'cover'
+    }
   }
 }

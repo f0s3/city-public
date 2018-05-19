@@ -9,7 +9,7 @@ export const appRoutes: Routes = [
     path: 'dashboard', children: [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
-      {path: 'posts/:post_id', component: PostComponent},
+      {path: 'posts/:id', component: PostComponent},
       {path: 'categories/:category/posts', component: PostByCategoryComponent}
     ]
   },
