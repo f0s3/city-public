@@ -7,21 +7,31 @@ import { AppComponent } from './app.component';
 import {RouterModule} from "@angular/router";
 import {appRoutes} from "./app-routes";
 import { HomeComponent } from './home/home.component';
-import { PostsComponent } from './home/posts/posts.component';
+import { PostsComponent } from './posts/posts.component';
+import {PostService} from "./services/post.service";
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PostsComponent
+    PostsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, {useHash: true}),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
