@@ -1,13 +1,14 @@
 .header{
-  display: inline-block;
-  width: calc(100% - 400px);
+  flex: 1;
 }
 
 header::after, header::before {
-  display: inline-block;
-  width: 25%;
-  min-width: 200px;
+  @extend .side-bar;
   content: '';
+}
+
+.side-bar {
+  width: 300px;
 }
 
 .header-title {
