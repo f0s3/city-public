@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import {RouterModule} from "@angular/router";
 import {appRoutes} from "./app-routes";
 import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './home/posts/posts.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
