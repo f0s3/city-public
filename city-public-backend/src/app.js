@@ -19,7 +19,7 @@ app.get('/posts', (req, res) =>
 					title: "TITLE",
 					description: "long text that is our description and this is basic hello world from backend side!",
 					media:[{type:"VIDEO", url:"url1"}, {type:"VIDEO", url:"url1"}],
-					time: "current time"
+					time: Date.now()
 				},
 				{
 					user: {
@@ -30,7 +30,7 @@ app.get('/posts', (req, res) =>
 					title: "TITLE",
 					description: "long text that is our description and this is basic hello world from backend side!",
 					media:[{type:"VIDEO", url:"url1"}, {type:"VIDEO", url:"url1"}],
-					time: "current time"
+					time: Date.now()
 				}
 			]
 		})
