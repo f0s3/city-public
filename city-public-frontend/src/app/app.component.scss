@@ -1,3 +1,22 @@
-header {
-  background-color: #6886ff;
+.header{
+  display: inline-block;
+  width: calc(100% - 400px);
+}
+
+header::after, header::before {
+  display: inline-block;
+  width: 25%;
+  min-width: 200px;
+  content: '';
+}
+
+.header-title {
+  color: white;
+  font-size: 24px;
+}
+
+.body {
+  background: url("../assets/images/page-backgrounds/day.jpg") no-repeat;
+  background-size: cover;
+  height: calc(100% - 52px);
 }
