@@ -4,7 +4,6 @@ import {Observable} from "rxjs/Observable";
 import {Post} from "../models/Post";
 
 import {environment} from "../../../environments/environment";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 import {of} from "rxjs/observable/of";
 
@@ -15,8 +14,6 @@ const POSTS_URL: string = `${API_URL}/posts`;
 export class PostService {
 
   constructor(private _http: HttpClient) { }
-
-  public selectedCity: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   public getAllPosts(city: string): Observable<Post[]> {
     return of(

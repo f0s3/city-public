@@ -14,23 +14,8 @@ class Location {
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  locationForm: FormGroup;
-
-  constructor(
-    formBuilder: FormBuilder,
-    private _postService: PostService
-  ) {
-    this.locationForm = formBuilder.group({
-      country: '',
-      city: ''
-    });
-  }
 
   ngOnInit() {
-    this.locationForm.valueChanges.pipe(
-      map((location: Location) => location.city),
-      filter((city: string) => Boolean(city))
-    ).subscribe((city: string) => this._postService.selectedCity.next(city));
   }
 
 }
