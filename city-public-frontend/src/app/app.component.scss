@@ -1,6 +1,6 @@
 @import "../styles";
 
-.header{
+.header {
   flex: 1;
 }
 
@@ -18,12 +18,11 @@ header::after, header::before {
 }
 
 .content {
-  overflow-y: scroll;
-  padding: 25px;
-  height: calc(100% - 59px);
-  margin: 0 200px;
+  height: 100%;
+  padding: 25px 200px;
+  width: max-content;
+  margin: auto;
 }
-
 
 header {
   border-bottom: 3px solid red;
@@ -34,14 +33,20 @@ ul {
   margin: 0;
 }
 
-li{
+li {
   margin-left: 25px;
   cursor: pointer;
 }
+
 li:first-child {
   margin: 0;
 }
 
 .fs-16 {
   font-size: 18px;
+}
+
+.scroll-content {
+  overflow-y: scroll;
+  height: calc(100% - 59px);
 }

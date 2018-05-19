@@ -9,4 +9,8 @@ import {Post} from "../models/Post";
 export class PostsComponent {
   @Input() posts: Post[];
   @Input() title: string;
+
+  getPostBG(url: string) {
+    return {'background-image': 'url(' + url +')'}
+  }
 }

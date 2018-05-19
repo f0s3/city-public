@@ -30,4 +30,16 @@ export class HomeComponent implements OnInit {
     }
     return posts
   }
+
+  getLastPost(): Post {
+    const lastIndex: number = this.posts.length - 1;
+    return this.posts[lastIndex];
+  }
+
+  getTopPostStyles(lastPost: Post) {
+    return {
+      'background': 'url(' + lastPost.url +') no-repeat center',
+      'backgroung-size': 'contain'
+    }
+  }
 }

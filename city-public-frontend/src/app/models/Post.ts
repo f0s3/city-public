@@ -2,11 +2,12 @@ import {User} from "./User";
 import {Media} from "./Media";
 
 export class Post {
-  id: number;
+  post_id: number;
   user: User;
   title: string;
   description: string;
   media: Media[];
-  time: number;
-  category: string
+  time: string;
+  category: string;
+  url?: string;
 }

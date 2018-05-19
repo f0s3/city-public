@@ -1,7 +1,22 @@
 <div class="content">
-  <div *ngFor="let category of categories">
-    <div *ngIf="getPostsByCategory(category.key).length != 0">
-      <app-posts [posts]="getPostsByCategory(category.key)" [title]="category.name"></app-posts>
+  <div class="top-post" style="margin-bottom: 30px">
+    <div class="card post position-relative"
+         routerLink="/dashboard/posts/{{getLastPost().post_id}}"
+         [ngStyle]="getTopPostStyles(getLastPost())"
+    >
+      <div class="card-body position-absolute title">
+        <div class="card-text">
+          {{getLastPost().title}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin: auto">
+    <div *ngFor="let category of categories">
+      <div *ngIf="getPostsByCategory(category.key).length != 0">
+        <app-posts [posts]="getPostsByCategory(category.key)" [title]="category.name"></app-posts>
+      </div>
     </div>
   </div>
 </div>
