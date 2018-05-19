@@ -1,0 +1,16 @@
+<div>
+  <h4 *ngIf="title">{{title}}</h4>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let post of posts"
+         class="card post position-relative"
+         routerLink="/dashboard/posts/{{post.id}}"
+         [ngStyle]="{'background-image': 'url(' + post?.media[0]?.url +')'}"
+    >
+      <div class="card-body position-absolute title">
+        <div class="card-text">
+          {{post.title}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

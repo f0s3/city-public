@@ -1,9 +1,25 @@
-<header class="bg-dark border-bottom border-white d-flex justify-content-between">
-  <div class="d-flex justify-content-between p-2 header">
-    <div class="header-title">CityPublic</div>
+<header class="bg-white d-flex justify-content-between">
+  <div class="d-flex justify-content-between p-2 header fs-16">
+    <ul class="d-flex">
+      <li routerLink="/dashboard/home">Home</li>
+      <li *ngFor="let category of categories" routerLink="/dashboard/home">{{category.name}}</li>
+      <li>Popular</li>
+    </ul>
+
+    <div>
+      <form [formGroup]="cityForm">
+        <input type="search" formControlName="city" class="form-control" placeholder="City">
+      </form>
+    </div>
+
     <div></div>
+
+    <div>
+      Logout
+    </div>
   </div>
 </header>
-<div [ngClass]="getBodyBGClass()">
+
+<div class="content">
   <router-outlet></router-outlet>
 </div>
