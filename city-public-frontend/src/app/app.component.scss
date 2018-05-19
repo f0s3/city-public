@@ -10,7 +10,7 @@ header::after, header::before {
 }
 
 .side-bar {
-  width: 300px;
+  width: 200px;
 }
 
 .header-title {
@@ -21,7 +21,7 @@ header::after, header::before {
   overflow-y: scroll;
   padding: 25px;
   height: calc(100% - 59px);
-  margin: 0 300px;
+  margin: 0 200px;
 }
 
 
@@ -36,6 +36,7 @@ ul {
 
 li{
   margin-left: 25px;
+  cursor: pointer;
 }
 li:first-child {
   margin: 0;

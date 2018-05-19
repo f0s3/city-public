@@ -28,10 +28,10 @@ export class PostService {
   public getAllPosts(city: string): Observable<Post[]> {
     return of(
       [
-        {id: 1, title: 'hello', category: 'culture'},
-        {id: 2, title: 'hello', category: 'culture'},
-        {id: 3, title: 'hello', category: 'culture'},
-        {id: 4, title: 'hello', category: 'science'}
+        {id: 1, title: 'hello', category: 'culture', media: [{url: '../../assets/images/page-backgrounds/day.jpg'}]},
+        {id: 2, title: 'hello', category: 'culture', media: [{url: '../../assets/images/page-backgrounds/day.jpg'}]},
+        {id: 3, title: 'hello', category: 'culture', media: [{url: '../../assets/images/page-backgrounds/day.jpg'}]},
+        {id: 4, title: 'hello', category: 'science', media: [{url: '../../assets/images/page-backgrounds/day.jpg'}]}
       ] as Post[]
     );
   }
