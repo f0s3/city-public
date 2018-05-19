@@ -71,3 +71,50 @@ li:hover {
 .active-menu-item {
   border-bottom-color: blue;
 }
+
+.menu-button {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  bottom: -3px;
+  cursor: pointer;
+}
+
+.menu {
+  @extend .menu-button;
+  background: url("../assets/images/grey-menu.svg") no-repeat;
+  background-size: cover;
+}
+
+.menu-active {
+  @extend .menu-button;
+  background: url("../assets/images/red-menu.svg") no-repeat;
+  background-size: cover;
+}
+
+.menu-item {
+  display: none;
+}
+
+.menu-item-show {
+  position: absolute;
+  display: block;
+  bottom: -148px;
+  left: -110px;
+  width: 150px;
+}
+
+.menu-item ul {
+  list-style-type: none;
+}
+
+.item {
+  border: 2px solid grey;
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: white;
+  text-align: center;
+}
+.item:last-child {
+  margin-bottom: 0;
+}

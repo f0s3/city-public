@@ -10,6 +10,7 @@ import {categories, PostService} from "./services/post.service";
 export class AppComponent implements OnInit {
   cityForm: FormGroup;
   categories = categories;
+  isDisplayedMenu = false;
 
   constructor(fb: FormBuilder, private _postService: PostService) {
     this.cityForm = fb.group({
@@ -21,5 +22,17 @@ export class AppComponent implements OnInit {
     this.cityForm.valueChanges.subscribe((city: string) => {
       this._postService.selectedCity.next(city);
     })
+  }
+
+  getMenuButtonClass(): string {
+    return (this.isDisplayedMenu === true) ? 'menu-active' : 'menu';
+  }
+
+  getMenuItemsClass() {
+    return (this.isDisplayedMenu === true) ? 'menu-item-show' : 'menu-item';
+  }
+
+  openMenu() {
+    this.isDisplayedMenu = !this.isDisplayedMenu;
   }
 }
