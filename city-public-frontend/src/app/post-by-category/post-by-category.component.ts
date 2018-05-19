@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {PostService} from "../services/post.service";
+import {Observable} from "rxjs/Observable";
+import {Post} from "../models/Post";
 
 @Component({
   selector: 'app-post-by-category',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-by-category.component.scss']
 })
 export class PostByCategoryComponent implements OnInit {
-
-  constructor() { }
+  category: string;
+  posts$: Observable<Post[]>;
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _postService: PostService
+  ) { }
 
   ngOnInit() {
+    this._activatedRoute.params.subscribe((params) => {
+      this.category = params['category'];
+      this.posts$ = this._postService.getAllByCategory(this.category);
+    })
   }
 
+  hasPosts(posts: Post[]) {
+    return posts.length !== 0
+  }
 }

@@ -27,6 +27,10 @@ export class PostService {
   public getAllPosts(city: string): Observable<Post[]> {
     return of(posts)///this._http.get<Post[]>(POSTS_URL);
   }
+
+  getAllByCategory(category: string): Observable<Post[]> {
+    return of(posts.filter((post: Post) => post.category === category));
+  }
 }
 
 const posts = [
