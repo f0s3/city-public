@@ -6,9 +6,12 @@ import {Post} from "../models/Post";
 import {environment} from "../../environments/environment";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {of} from "rxjs/observable/of";
+import "rxjs/add/operator/map";
 
 const API_URL: string = environment.apiUrl;
 const POSTS_URL: string = `${API_URL}/posts`;
+
+const CURRENT_USER_ID = 2;
 
 export const categories = [
   {key: 'culture', name: 'Culture'},
@@ -25,16 +28,20 @@ export class PostService {
 
   public selectedCity: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  public getAllPosts(city: string): Observable<Post[]> {
-    return of(posts)///this._http.get<Post[]>(POSTS_URL);
+  public getAllPosts(): Observable<Post[]> {
+    return of(posts)//this._http.get<Post[]>(POSTS_URL);
   }
 
   getAllByCategory(category: string): Observable<Post[]> {
-    return of(posts.filter((post: Post) => post.category === category));
+    return this.getAllPosts().map((posts: Post[]) => posts.filter((post: Post) => post.category === category));
   }
 
   getById(postId: number): Observable<Post> {
-    return of(posts.find((post: Post) => post.id === postId)) ///this._http.get<Post>(POSTS_URL);
+    return of(posts.find((post: Post) => post.id === postId))//this._http.get<Post>(`${POSTS_URL}/${postId}`);
+  }
+
+  create(post: Post): Promise<any> {
+    return this._http.post(POSTS_URL, {...post, user_id: CURRENT_USER_ID}).toPromise()
   }
 }
 
@@ -66,7 +73,7 @@ const posts = [
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     category: 'culture',
     time: new Date().toDateString(),
-    user: {nickname: 'Alex'},
+    userInfo: {nickname: 'Alex'},
     url: [
       '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
       '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
@@ -80,7 +87,7 @@ const posts = [
     title: 'Ab alias aperiam cumque ea eius enim, facere modi mollitia, placeat possimus quos sunt voluptatibus!',
     category: 'culture',
     time: new Date().toDateString(),
-    user: {nickname: 'Oleg'},
+    userInfo: {nickname: 'Oleg'},
     url: [
       '../../assets/images/page-backgrounds/day.jpg',
       '../../assets/images/7p_2hzkryqe-luis-llerena.jpg'
@@ -92,7 +99,7 @@ const posts = [
     title: 'Fugiat nulla obcaecati omnis perspiciatis? Esse, officia.',
     category: 'culture',
     time: new Date().toDateString(),
-    user: {nickname: 'Hideo'},
+    userInfo: {nickname: 'Hideo'},
     url: [
       '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
     ],
@@ -103,7 +110,7 @@ const posts = [
     title: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     category: 'science',
     time: new Date().toDateString(),
-    user: {nickname: 'Jon'},
+    userInfo: {nickname: 'Jon'},
     url: [
       '../../assets/images/7p_2hzkryqe-luis-llerena.jpg',
       '../../assets/images/page-backgrounds/day.jpg'

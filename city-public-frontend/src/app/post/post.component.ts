@@ -25,7 +25,7 @@ export class PostComponent implements OnInit {
   }
 
   getUserPhoto(): string {
-    const photo = this.post.user.photo;
+    const photo = this.post.userInfo.photo;
     return (photo) ? photo : DEFAULT_USER_PHOTO;
   }
 }

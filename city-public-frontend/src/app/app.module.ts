@@ -24,7 +24,7 @@ import {ModalModule} from "ngx-bootstrap";
     PostsComponent,
     PostComponent,
     PostByCategoryComponent,
-    CreatePostComponent
+    CreatePostComponent,
   ],
   imports: [
     BrowserModule,

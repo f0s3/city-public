@@ -1,17 +1,20 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ModalDirective} from "ngx-bootstrap";
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {PostService} from "../services/post.service";
+import {Post} from "../models/Post";
 
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.scss']
 })
-export class CreatePostComponent implements OnInit, IAppModal {
+export class CreatePostComponent implements IAppModal {
+  @Output() onSubmit: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('modal') modal: ModalDirective;
   form: FormGroup;
 
-  constructor(fb: FormBuilder) {
+  constructor(fb: FormBuilder, private _postService: PostService) {
     this.form = fb.group({
       title: '',
       description: '',
@@ -20,10 +23,6 @@ export class CreatePostComponent implements OnInit, IAppModal {
         new FormControl()
       ])
     })
-  }
-
-  ngOnInit() {
-    this.form.valueChanges.subscribe(console.log)
   }
 
   get photos(): FormArray {
@@ -40,11 +39,15 @@ export class CreatePostComponent implements OnInit, IAppModal {
   }
 
   hide() {
+    this.form.reset();
     this.modal.hide();
   }
 
   submit() {
-    this.modal.hide();
+    this._postService.create(this.form.getRawValue() as Post)
+      .then(() => this.onSubmit.emit(null))
+      .then(() => this.form.reset())
+      .then(() => this.modal.hide());
   }
 }
 
