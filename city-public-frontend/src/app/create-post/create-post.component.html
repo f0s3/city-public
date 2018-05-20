@@ -21,7 +21,9 @@
           <div class="form-group">
             <label class="w-100">
               Category
-              <input type="text" class="form-control" formControlName="category">
+              <select formControlName="category" class="form-control">
+                <option *ngFor="let cat of categories" [value]="cat.key">{{cat.name}}</option>
+              </select>
             </label>
           </div>
 
