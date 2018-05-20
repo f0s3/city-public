@@ -7,22 +7,9 @@ import {categories, PostService} from "./services/post.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  cityForm: FormGroup;
+export class AppComponent {
   categories = categories;
   isDisplayedMenu = false;
-
-  constructor(fb: FormBuilder, private _postService: PostService) {
-    this.cityForm = fb.group({
-      city: ''
-    })
-  }
-
-  ngOnInit() {
-    this.cityForm.valueChanges.subscribe((city: string) => {
-      this._postService.selectedCity.next(city);
-    })
-  }
 
   getMenuButtonClass(): string {
     return (this.isDisplayedMenu === true) ? 'menu-active' : 'menu';

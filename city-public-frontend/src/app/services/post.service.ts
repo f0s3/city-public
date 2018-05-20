@@ -23,10 +23,7 @@ export const categories = [
 @Injectable()
 export class PostService {
 
-  constructor(private _http: HttpClient) {
-  }
-
-  public selectedCity: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  constructor(private _http: HttpClient) {}
 
   public getAllPosts(): Observable<Post[]> {
     return of(posts)//this._http.get<Post[]>(POSTS_URL);
