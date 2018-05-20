@@ -21,7 +21,7 @@
         <div [ngClass]="getMenuButtonClass()" (click)="openMenu()"></div>
         <div [ngClass]="getMenuItemsClass()">
           <div class="item">My account</div>
-          <div class="item" (click)="createPostModal.show()">Suggest post</div>
+          <div class="item" (click)="createPostModal.show(); openMenu()">Suggest post</div>
           <div class="item">Logout</div>
         </div>
       </div>

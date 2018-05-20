@@ -10,7 +10,44 @@ tabindex="-1" role="dialog" aria-hidden="true">
       </div>
 
       <div class="modal-body">
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="w-100">
+                  Title
+                  <input type="text" class="form-control" formControlName="title">
+                </label>
+              </div>
 
+              <div class="form-group">
+                <label class="w-100">
+                  Category
+                  <input type="text" class="form-control" formControlName="category">
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label class="w-100">
+                  Description
+                  <textarea class="form-control" formControlName="description" style="height: 150px; resize: none"></textarea>
+                </label>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div formArrayName="url">
+                <div class="d-flex justify-content-between">
+                  <label class="w-100">Photo urls</label>
+                  <button type="button" (click)="addUrlField()" class="add-button"><b>+</b></button>
+                </div>
+                <div *ngFor="let photo of photos.controls; index as i" class="form-group">
+                  <input type="text" class="form-control" [formControlName]="i">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
 
       <div class="modal-footer">
