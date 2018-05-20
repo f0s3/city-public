@@ -4,9 +4,9 @@ import {Observable} from "rxjs/Observable";
 import {Post} from "../models/Post";
 
 import {environment} from "../../environments/environment";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
 import {of} from "rxjs/observable/of";
 import "rxjs/add/operator/map";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 const API_URL: string = environment.apiUrl;
 const POSTS_URL: string = `${API_URL}/posts`;
@@ -23,20 +23,17 @@ export const categories = [
 @Injectable()
 export class PostService {
 
-  constructor(private _http: HttpClient) {}
-
-  posts$: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>([]);
-
-  public getAllPosts() {
-    this.posts$ = of(posts) as BehaviorSubject<Post[]>//this._http.get<Post[]>(POSTS_URL);
+  constructor(private _http: HttpClient) {
   }
 
-  getAllByCategory(category: string) {
-    this.getAllPosts();
-    this.posts$ = this.posts$
-      .map((posts: Post[]) => posts
-        .filter((post: Post) => post.category === category)
-      ) as BehaviorSubject<Post[]>;
+  updateEvents$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
+  public getAllPosts(): Observable<Post[]> {
+    return of(posts)//this._http.get<Post[]>(POSTS_URL);
+  }
+
+  getAllByCategory(category: string): Observable<Post[]> {
+    return this.getAllPosts().map((posts: Post[]) => posts.filter((post: Post) => post.category === category));
   }
 
   getById(postId: number): Observable<Post> {
@@ -44,7 +41,10 @@ export class PostService {
   }
 
   create(post: Post): Promise<any> {
-    return this._http.post(POSTS_URL, {...post, user_id: CURRENT_USER_ID}).toPromise()
+    return new Promise<any>(resolve => {
+      posts.push(post);
+      resolve();
+    })//this._http.post(POSTS_URL, {...post, user_id: CURRENT_USER_ID}).toPromise()
   }
 }
 

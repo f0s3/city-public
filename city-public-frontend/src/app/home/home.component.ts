@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._postService.getAllPosts();
-    this._postService.posts$
-      .subscribe((posts: Post[]) => this.posts = posts);
+    this._postService.updateEvents$.subscribe(() => {
+      this._postService.getAllPosts().subscribe((posts: Post[]) => this.posts = posts);
+    });
   }
 
   getPostsByCategory(cat: string): Post[] {

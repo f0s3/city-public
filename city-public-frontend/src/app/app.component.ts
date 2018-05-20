@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {categories} from "./services/post.service";
+import {categories, PostService} from "./services/post.service";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,8 @@ import {categories} from "./services/post.service";
 export class AppComponent {
   categories = categories;
   isDisplayedMenu = false;
+
+  constructor(private _postService: PostService) {}
 
   getMenuButtonClass(): string {
     return (this.isDisplayedMenu === true) ? 'menu-active' : 'menu';
@@ -20,5 +22,9 @@ export class AppComponent {
 
   openMenu() {
     this.isDisplayedMenu = !this.isDisplayedMenu;
+  }
+
+  updateData() {
+    this._postService.updateEvents$.next(null);
   }
 }
