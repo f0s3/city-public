@@ -8,7 +8,7 @@ import {categories, PostService} from "./services/post.service";
 })
 export class AppComponent {
   categories = categories;
-  isDisplayedMenu = false;
+  isDisplayedMenu = true;
 
   constructor(private _postService: PostService) {}
 

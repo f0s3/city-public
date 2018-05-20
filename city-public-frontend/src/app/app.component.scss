@@ -93,7 +93,19 @@ li:hover {
 }
 
 .menu-item {
-  display: none;
+  overflow: hidden;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  left: -110px;
+  width: 150px;
+  border-right: 3px red solid;
+  animation: hide-menu ease 0.4s;
+}
+
+
+@keyframes hide-menu {
+  from {height: 125px; bottom: -148px} to {height: 0; bottom: -7px}
 }
 
 .menu-item-show {
@@ -103,6 +115,12 @@ li:hover {
   bottom: -148px;
   left: -110px;
   width: 150px;
+  overflow: hidden;
+  animation: show-menu ease 0.4s;
+}
+
+@keyframes show-menu {
+  from {height: 0; bottom: -7px} to {height: 125px; bottom: -148px}
 }
 
 .menu-item ul {
@@ -111,7 +129,6 @@ li:hover {
 
 .item {
   margin-bottom: 5px;
-  background-color: white;
   text-align: right;
   cursor: pointer;
   padding: 5px 10px 5px 5px;
