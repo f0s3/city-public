@@ -15,6 +15,7 @@ import { PostComponent } from './post/post.component';
 import { PostByCategoryComponent } from './post-by-category/post-by-category.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import {ModalModule} from "ngx-bootstrap";
+import { LoagingComponent } from './shared/loaging/loaging.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {ModalModule} from "ngx-bootstrap";
     PostComponent,
     PostByCategoryComponent,
     CreatePostComponent,
+    LoagingComponent,
   ],
   imports: [
     BrowserModule,

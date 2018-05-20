@@ -10,6 +10,7 @@ import {Post} from "../models/Post";
 })
 export class HomeComponent implements OnInit {
   categories = categories;
+  isLoading = false;
   private posts: Post[] = [];
 
 
@@ -17,8 +18,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLoading = true;
     this._postService.updateEvents$.subscribe(() => {
-      this._postService.getAllPosts().subscribe((posts: Post[]) => this.posts = posts);
+      this._postService.getAllPosts().subscribe((posts: Post[]) => {
+        this.posts = posts;
+        this.isLoading = false;
+      });
     });
   }
 

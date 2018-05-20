@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {PostService} from "../services/post.service";
 import {Observable} from "rxjs/Observable";
 import {Post} from "../models/Post";
+import "rxjs/add/operator/map";
 
 @Component({
   selector: 'app-post-by-category',
@@ -11,7 +12,8 @@ import {Post} from "../models/Post";
 })
 export class PostByCategoryComponent implements OnInit {
   category: string;
-  posts$: Observable<Post[]>;
+  posts: Post[] = [];
+  isLoading = false;
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _postService: PostService
@@ -19,9 +21,14 @@ export class PostByCategoryComponent implements OnInit {
 
   ngOnInit() {
     this._activatedRoute.params.subscribe((params) => {
+      this.isLoading = true;
       this.category = params['category'];
       this._postService.updateEvents$.subscribe(() => {
-        this.posts$ = this._postService.getAllByCategory(this.category);
+        this._postService.getAllByCategory(this.category)
+          .subscribe((posts: Post[]) => {
+            this.isLoading = false;
+            this.posts = posts;
+          })
       })
     })
   }

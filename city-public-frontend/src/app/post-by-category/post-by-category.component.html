@@ -1,11 +1,19 @@
 <div style="width: 860px; height: 100%">
-  <h2 style="margin: 0 15px">{{category}}</h2>
-  <div *ngIf="hasPosts(posts$ | async)">
-    <app-posts [posts]="posts$ | async"></app-posts>
+  <div class="h-100 w-100 d-flex" *ngIf="isLoading">
+    <div style="margin: auto">
+      <app-loaging></app-loaging>
+    </div>
   </div>
-  <div class="d-flex" *ngIf="!hasPosts(posts$ | async)" style="height: calc(100% - 38px)">
-    <div style="margin: auto; padding-bottom: 50px">
-      Nothing to show
+
+  <div *ngIf="!isLoading">
+    <h2 style="margin: 0 15px">{{category}}</h2>
+    <div *ngIf="hasPosts(posts)">
+      <app-posts [posts]="posts"></app-posts>
+    </div>
+    <div class="d-flex" *ngIf="!hasPosts(posts)" style="height: calc(100% - 38px)">
+      <div style="margin: auto; padding-bottom: 50px">
+        Nothing to show
+      </div>
     </div>
   </div>
 </div>
