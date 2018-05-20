@@ -13,12 +13,17 @@
     </ul>
 
     <div class="d-flex justify-content-between">
-      <form [formGroup]="cityForm">
-        <input type="search" formControlName="city" class="form-control" placeholder="City">
+      <form>
+        <input type="search" class="form-control" placeholder="City">
       </form>
 
-      <div class="ml-4">
-        Login
+      <div class="ml-4 position-relative">
+        <div [ngClass]="getMenuButtonClass()" (click)="openMenu()"></div>
+        <div [ngClass]="getMenuItemsClass()">
+          <div class="item">My account</div>
+          <div class="item" (click)="createPostModal.show()">Suggest post</div>
+          <div class="item">Logout</div>
+        </div>
       </div>
     </div>
   </div>
@@ -30,3 +35,4 @@
   </div>
 </div>
 
+<app-create-post #createPostModal (onSubmit)="updateData()"></app-create-post>

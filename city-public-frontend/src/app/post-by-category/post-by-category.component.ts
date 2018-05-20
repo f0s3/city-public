@@ -20,11 +20,18 @@ export class PostByCategoryComponent implements OnInit {
   ngOnInit() {
     this._activatedRoute.params.subscribe((params) => {
       this.category = params['category'];
-      this.posts$ = this._postService.getAllByCategory(this.category);
+      this._postService.updateEvents$.subscribe(() => {
+        this.posts$ = this._postService.getAllByCategory(this.category);
+      })
     })
   }
 
-  hasPosts(posts: Post[]) {
-    return posts.length !== 0
+  hasPosts(posts: Post[]): boolean {
+    if (Boolean(posts)) {
+      if (posts.length !== 0) {
+        return true;
+      }
+    }
+    return false;
   }
 }

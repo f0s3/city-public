@@ -71,3 +71,68 @@ li:hover {
 .active-menu-item {
   border-bottom-color: blue;
 }
+
+.menu-button {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  bottom: -3px;
+  cursor: pointer;
+}
+
+.menu {
+  @extend .menu-button;
+  background: url("../assets/images/grey-menu.svg") no-repeat;
+  background-size: cover;
+}
+
+.menu-active {
+  @extend .menu-button;
+  background: url("../assets/images/red-menu.svg") no-repeat;
+  background-size: cover;
+}
+
+.menu-item {
+  overflow: hidden;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  left: -110px;
+  width: 150px;
+  border-right: 3px red solid;
+  animation: hide-menu ease 0.4s;
+}
+
+
+@keyframes hide-menu {
+  from {height: 125px; bottom: -148px} to {height: 0; bottom: -7px}
+}
+
+.menu-item-show {
+  border-right: 3px red solid;
+  position: absolute;
+  display: block;
+  bottom: -148px;
+  left: -110px;
+  width: 150px;
+  overflow: hidden;
+  animation: show-menu ease 0.4s;
+}
+
+@keyframes show-menu {
+  from {height: 0; bottom: -7px} to {height: 125px; bottom: -148px}
+}
+
+.menu-item ul {
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 5px;
+  text-align: right;
+  cursor: pointer;
+  padding: 5px 10px 5px 5px;
+}
+.item:last-child {
+  margin-bottom: 0;
+}

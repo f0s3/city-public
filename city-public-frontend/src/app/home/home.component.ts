@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {categories, PostService} from "../services/post.service";
 import {Post} from "../models/Post";
 
@@ -17,16 +17,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._postService.selectedCity.subscribe((city: string) => {
-      this._postService.getAllPosts(city)
-        .subscribe((posts: Post[]) => this.posts = posts);
-    })
+    this._postService.updateEvents$.subscribe(() => {
+      this._postService.getAllPosts().subscribe((posts: Post[]) => this.posts = posts);
+    });
   }
 
   getPostsByCategory(cat: string): Post[] {
     const posts = this.posts.filter((post: Post) => post.category === cat);
     if (posts.length > 2) {
-      return posts.slice(0,2)
+      return posts.slice(0, 2)
     }
     return posts
   }
@@ -38,8 +37,8 @@ export class HomeComponent implements OnInit {
 
   getTopPostStyles(lastPost: Post) {
     return {
-      'background': 'url(' + lastPost.url +') no-repeat center',
-      'backgroung-size': 'contain'
+      'background': 'url(' + lastPost.url[0] + ') no-repeat center',
+      'background-size': 'cover'
     }
   }
 }

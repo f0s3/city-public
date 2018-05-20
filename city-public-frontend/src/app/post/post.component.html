@@ -3,14 +3,14 @@
   <div>
     <img [src]="getUserPhoto()" class="user-photo" style="vertical-align: middle">
     <div class="d-inline-block" style="vertical-align: middle">
-      <b class="d-block">{{post.user.nickname}}</b>
-      <span class="d-block" style="font-size: 12px">{{post.time}}</span>
+      <b class="d-block">{{post.userInfo.nickname}}</b>
+      <span class="d-block" style="font-size: 12px">{{getDate()}}</span>
     </div>
   </div>
 
   <div class="d-flex flex-wrap justify-content-around mt-3 align-items-center">
-    <div *ngFor="let photo of getPhotos()" class="m-1">
-      <img [src]="photo.url" width="400px">
+    <div *ngFor="let photo of post.url" class="m-1">
+      <img [src]="photo" width="400px">
     </div>
   </div>
 
