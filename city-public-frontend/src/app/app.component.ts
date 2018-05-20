@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {categories, PostService} from "./services/post.service";
+import {Component} from '@angular/core';
+import {categories} from "./services/post.service";
 
 @Component({
   selector: 'app-root',

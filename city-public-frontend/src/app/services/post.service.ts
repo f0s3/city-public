@@ -25,12 +25,18 @@ export class PostService {
 
   constructor(private _http: HttpClient) {}
 
-  public getAllPosts(): Observable<Post[]> {
-    return of(posts)//this._http.get<Post[]>(POSTS_URL);
+  posts$: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>([]);
+
+  public getAllPosts() {
+    this.posts$ = of(posts) as BehaviorSubject<Post[]>//this._http.get<Post[]>(POSTS_URL);
   }
 
-  getAllByCategory(category: string): Observable<Post[]> {
-    return this.getAllPosts().map((posts: Post[]) => posts.filter((post: Post) => post.category === category));
+  getAllByCategory(category: string) {
+    this.getAllPosts();
+    this.posts$ = this.posts$
+      .map((posts: Post[]) => posts
+        .filter((post: Post) => post.category === category)
+      ) as BehaviorSubject<Post[]>;
   }
 
   getById(postId: number): Observable<Post> {

@@ -20,7 +20,8 @@ export class PostByCategoryComponent implements OnInit {
   ngOnInit() {
     this._activatedRoute.params.subscribe((params) => {
       this.category = params['category'];
-      this.posts$ = this._postService.getAllByCategory(this.category);
+      this._postService.getAllByCategory(this.category);
+      this.posts$ = this._postService.posts$;
     })
   }
 
