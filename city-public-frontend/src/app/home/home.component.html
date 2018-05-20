@@ -15,7 +15,7 @@
   <div style="margin: auto">
     <div *ngFor="let category of categories">
       <div *ngIf="getPostsByCategory(category.key).length != 0">
-        <app-posts [posts]="getPostsByCategory(category.key)" [title]="category.name"></app-posts>
+        <app-posts [posts]="getPostsByCategory(category.key)" [category]="category"></app-posts>
       </div>
     </div>
   </div>

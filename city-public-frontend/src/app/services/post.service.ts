@@ -29,7 +29,7 @@ export class PostService {
   updateEvents$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   public getAllPosts(): Observable<Post[]> {
-    return of(posts)//this._http.get<Post[]>(POSTS_URL);
+    return this._http.get<Post[]>(POSTS_URL);
   }
 
   getAllByCategory(category: string): Observable<Post[]> {
@@ -37,14 +37,11 @@ export class PostService {
   }
 
   getById(postId: number): Observable<Post> {
-    return of(posts.find((post: Post) => post.id === postId))//this._http.get<Post>(`${POSTS_URL}/${postId}`);
+    return this._http.get<Post>(`${POSTS_URL}/${postId}`);
   }
 
   create(post: Post): Promise<any> {
-    return new Promise<any>(resolve => {
-      posts.push(post);
-      resolve();
-    })//this._http.post(POSTS_URL, {...post, user_id: CURRENT_USER_ID}).toPromise()
+    return this._http.post(POSTS_URL, {...post, user_id: CURRENT_USER_ID}).toPromise()
   }
 }
 

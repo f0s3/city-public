@@ -1,5 +1,7 @@
 <div>
-  <h4 *ngIf="title" style="margin: 0 15px">{{title}}</h4>
+  <h4 *ngIf="hasCategory()" style="margin: 0 15px">
+    <a routerLink="/dashboard/categories/{{category.key}}/posts">{{category.name}}</a>
+  </h4>
   <div class="d-flex flex-wrap" style="width: 860px">
     <div *ngFor="let post of posts"
          class="card post position-relative"
