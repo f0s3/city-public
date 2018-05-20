@@ -28,4 +28,8 @@ export class PostComponent implements OnInit {
     const photo = this.post.userInfo.photo;
     return (photo) ? photo : DEFAULT_USER_PHOTO;
   }
+
+  getDate(): string {
+    return new Date(this.post.time).toDateString()
+  }
 }
