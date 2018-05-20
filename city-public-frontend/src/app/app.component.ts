@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {Component} from '@angular/core';
 import {categories, PostService} from "./services/post.service";
 
 @Component({
@@ -7,19 +6,25 @@ import {categories, PostService} from "./services/post.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  cityForm: FormGroup;
+export class AppComponent {
   categories = categories;
+  isDisplayedMenu = true;
 
-  constructor(fb: FormBuilder, private _postService: PostService) {
-    this.cityForm = fb.group({
-      city: ''
-    })
+  constructor(private _postService: PostService) {}
+
+  getMenuButtonClass(): string {
+    return (this.isDisplayedMenu === true) ? 'menu-active' : 'menu';
   }
 
-  ngOnInit() {
-    this.cityForm.valueChanges.subscribe((city: string) => {
-      this._postService.selectedCity.next(city);
-    })
+  getMenuItemsClass() {
+    return (this.isDisplayedMenu === true) ? 'menu-item-show' : 'menu-item';
+  }
+
+  openMenu() {
+    this.isDisplayedMenu = !this.isDisplayedMenu;
+  }
+
+  updateData() {
+    this._postService.updateEvents$.next(null);
   }
 }

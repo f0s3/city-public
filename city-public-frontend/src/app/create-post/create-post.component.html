@@ -1,0 +1,55 @@
+<div class="modal fade" [config]="{backdrop: 'static'}" bsModal #modal="bs-modal"
+     tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Creating post</div>
+        <button type="button" class="close" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+
+      <div class="modal-body pl-5 pr-5">
+        <form [formGroup]="form">
+          <div class="form-group">
+            <label class="w-100">
+              Title
+              <input type="text" class="form-control" formControlName="title" id="title">
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="w-100">
+              Category
+              <select formControlName="category" class="form-control">
+                <option *ngFor="let cat of categories" [value]="cat.key">{{cat.name}}</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="w-100">
+              Description
+              <textarea class="form-control" formControlName="description"
+                        style="height: 150px; resize: none"></textarea>
+            </label>
+          </div>
+          <div formArrayName="url">
+            <div class="d-flex justify-content-between">
+              <label class="w-100">Photo urls</label>
+              <button type="button" (click)="addUrlField()" class="add-button"><b>+</b></button>
+            </div>
+            <div *ngFor="let photo of photos.controls; index as i" class="form-group">
+              <input type="text" class="form-control" [formControlName]="i">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button (click)="submit()" class="btn btn-success btn-submit">Створити</button>
+        <button (click)="hide()" class="btn btn-outline-danger">Скасувати</button>
+      </div>
+    </div>
+  </div>
+</div>

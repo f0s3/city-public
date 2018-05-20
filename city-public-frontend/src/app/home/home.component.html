@@ -1,5 +1,5 @@
 <div class="content">
-  <div class="top-post" style="margin-bottom: 30px">
+  <div class="top-post" style="margin-bottom: 30px" *ngIf="getLastPost()">
     <div class="card post position-relative"
          routerLink="/dashboard/posts/{{getLastPost().id}}"
          [ngStyle]="getTopPostStyles(getLastPost())"
@@ -15,7 +15,7 @@
   <div style="margin: auto">
     <div *ngFor="let category of categories">
       <div *ngIf="getPostsByCategory(category.key).length != 0">
-        <app-posts [posts]="getPostsByCategory(category.key)" [title]="category.name"></app-posts>
+        <app-posts [posts]="getPostsByCategory(category.key)" [category]="category"></app-posts>
       </div>
     </div>
   </div>
