@@ -26,7 +26,12 @@ export class PostByCategoryComponent implements OnInit {
     })
   }
 
-  hasPosts(posts: Post[]) {
-    return posts.length !== 0
+  hasPosts(posts: Post[]): boolean {
+    if (Boolean(posts)) {
+      if (posts.length !== 0) {
+        return true;
+      }
+    }
+    return false;
   }
 }
